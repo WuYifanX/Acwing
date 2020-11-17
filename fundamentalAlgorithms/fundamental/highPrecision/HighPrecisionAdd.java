@@ -13,26 +13,19 @@ public class HighPrecisionAdd {
     }
 
     public static void add(String a, String b) {
-        if (a.length() < b.length()) {
-            add(b, a);
-        }
-
-        int maxLength = a.length();
+        int temp = 0;
+        int maxLength = Math.max(a.length(), b.length());
         int[] result = new int[maxLength + 1];
         result[maxLength] = -1;
-
-        int temp = 0;
-        int first = 0, second = 0;
         for (int i = 0; i < maxLength; i++) {
-            first = a.charAt(a.length() - i - 1) - '0';
-            if (i >= b.length()) {
-                second = 0;
-            } else {
-                second = b.charAt(b.length() - i - 1) - '0';
+            if (i < a.length()) {
+                temp += a.charAt(a.length() - i - 1) - '0';
             }
-            int sum = first + second + temp;
-            result[i] = sum % 10;
-            temp = sum / 10;
+            if (i < b.length()) {
+                temp += b.charAt(b.length() - i - 1) - '0';
+            }
+            result[i] = temp % 10;
+            temp = temp / 10;
         }
 
         if (temp != 0) {
