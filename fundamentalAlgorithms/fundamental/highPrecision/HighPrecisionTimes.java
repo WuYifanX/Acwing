@@ -1,7 +1,6 @@
 package fundamentalAlgorithms.fundamental.highPrecision;
 
 import java.io.*;
-import java.util.Arrays;
 
 public class HighPrecisionTimes {
     public static void main(String[] args) throws IOException {
